@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--CSS-->
+    <style>
+        body {
+            background: #f7f7f7;
+            opacity: 0;
+        }.fade-in {
+            opacity: 1;
+            transition: opacity 1s ease-in-out; /* Adjust the duration and easing function as needed */
+        }.form-box {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: 700px;
+            height: 800px;
+            margin: auto;
+            padding: 50px;
+            background: #ffffff;
+            border: 10px solid #f2f2f2;
+        }h1, p {
+            text-align: center;
+        }input, textarea {
+            width: 100%;
+        }.form-group span{
+            color: red;
+        }th, td {
+            padding: 10px;
+            }
+    </style>
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <title>CBSE 2024 10th</title>
+
+</head>
+<body>
+    <div class="form-box">
+        <center><img src="{% static 'cbse_logo.png' %}" alt="CBSE LOGO" height="140px" width="200px">
+        <p>*2024* result of 10th class CBSE.</a></p>
+        <div>
+            <strong> NAME: {{identity.name}}</strong> <br>
+            ROLL NO: {{identity.roll_no}} <br>
+            Currently IN: {{identity.currently_in}} at {{identity.school}} <br>
+            <h3>CBSE 10th 2024 RESULT</h3>
+            <table border="1px">
+                <thead>
+                    <th>Subject</th>
+                    <th>Marks Obtained</th>
+                    <th>Maximum Marks</th>
+                    <th>HELD ON</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HINDI</td>
+                        <td>{{identity.hindi}}</td>
+                        <td>100</td>
+                        <td>21.Feb.2024</td>
+                    </tr>
+                    <tr>
+                        <td>ENGLISH</td>
+                        <td>{{identity.english}}</td>
+                        <td>100</td>
+                        <td>26.Feb.2024</td>
+                    </tr>
+                    <tr>
+                        <td>SCIENCE</td>
+                        <td>{{identity.science}}</td>
+                        <td>100</td>
+                        <td>02.Mar.2024</td>
+                    </tr>
+                    <tr>
+                        <td>SOCIAL SCIENCE</td>
+                        <td>{{identity.social_science}}</td>
+                        <td>100</td>
+                        <td>07.Mar.2024</td>
+                    </tr>
+                    <tr>
+                        <td>MATHS</td>
+                        <td>{{identity.maths}}</td>
+                        <td>100</td>
+                        <td>11.Mar.2024</td>
+                    </tr>
+                    <tr>
+                        <td>COMPUTER</td>
+                        <td>{{identity.computer}}</td>
+                        <td>100</td>
+                        <td>13.Mar.2024</td>
+                    </tr>
+
+                    <tr style="border: 10px black solid;">
+                        <td>CONCLUSION</td>
+                        <td>{{total}}</td>
+                        <td>600</td>
+                        <td style="color: {{identity.color}};">{{identity.status}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <a href="{% url 'index' %}">BACK</a>
+
+      </div>
+    </center>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('fade-in');
+    });
+</script>
+</html>
